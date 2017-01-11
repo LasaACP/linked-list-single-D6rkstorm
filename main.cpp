@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath> 
+#include <stdlib.h>
 #include "slist.h"
 
 using namespace std;
@@ -34,7 +35,6 @@ int main()
     char cNum[10] ;
     Airport* airportArr[13500];
     int   airportCount;
-    //Airport* a[13500];
     
     infile.open ("./USAirportCodes.csv", ifstream::in);
     if (infile.is_open())
@@ -87,8 +87,8 @@ int main()
 
 
    // Initialize Linked List
-   
-   // 
+   List<Airport> X;
+      // 
 
     
 }
