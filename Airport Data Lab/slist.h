@@ -51,7 +51,7 @@ void insert(int*, const T&);
 // get iterator at beginning
 inline iterator begin() { return iterator(tail->next); }
 // add(value)				//Adds a new value to the end of this list.
-inline void push_front(const T& x) { insert(begin(), x); }
+inline void add(const T& x) { insert(begin(), x); }
 
 inline iterator end() { return iterator(tail); }
 // clear()					//Removes all elements from this list.
