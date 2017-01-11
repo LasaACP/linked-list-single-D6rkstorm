@@ -140,7 +140,7 @@ List<T> List<T>::subList(int start, int length)
 			it++;}
 	while(j < start + length)
 	{
-	link1.push_front(it.ref->data);
+	link1.add(it.ref->data);
 	j++;
 	}
 }
