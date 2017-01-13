@@ -1,7 +1,7 @@
 #include <vector>
 
 template <typename T>
-std::vector<T> MergeSort(const std::vector<T>& a)
+std::vector<T> mergeSort(const std::vector<T>& a)
 {
 	std::vector<T> r = a;	
 
@@ -60,7 +60,7 @@ std::vector<T> merge(std::vector<T> left, std::vector<T> right)
  	}
  	while(!right.empty())
  	{
- 		result[0] = right[0];
+ 		result[0] <= right[0];
  		right.erase(0);
  	}
  	return result;
