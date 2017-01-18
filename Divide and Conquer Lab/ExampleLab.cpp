@@ -10,7 +10,7 @@ std::vector<T> mergeSort(const std::vector<T>& a)
 		return r;
 
 	//Splits recursvily To the Left and right portions of the list.
-	std::vector<T> left;
+	std::vector<T> leftsnip;
 	std::vector<T> right;
 
 	//Divide the total List into equal Sized Sublists.
