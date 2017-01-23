@@ -23,9 +23,7 @@ public:
     
 };
 
-
-
-void simpleSortTotal(Airport* s[], int c);
+void SimpleSortTotal(Airport* s[]);
 double distanceEarth(double lat1d, double lon1d, double lat2d, double lon2d);
 
 int main()
@@ -64,17 +62,23 @@ int main()
             i++ ;
             c++;
         }
+
+        SimpleSortTotal(airportArr);
+        cout << airportArr[0]->code << endl;
+
+        cout << c << endl;
         airportCount = c-1;
         infile.close();
         
-         for (int c=0; c < airportCount; c++)
+        /* for (int c=0; c < airportCount; c++)
             if (!(c % 1000))
             {
                 cout << airportArr[c]->code << " long: " << airportArr[c]->longitude << " lat: " << airportArr[c]->latitude <<  endl;
                 cout << airportArr[c+1]->code << " long: " << airportArr[c+1]->longitude << " lat: " << airportArr[c+1]->latitude <<  endl;
                 cout <<"Distance between " << airportArr[c]->code << " and " << airportArr[c+1]->code << " is "
                   << distanceEarth( airportArr[c]->longitude, airportArr[c]->latitude , airportArr[c+1]->longitude, airportArr[c+1]->latitude) << endl;
-            }
+            }*/
+
 
 
 
@@ -87,7 +91,7 @@ int main()
 
 
    // Initialize Linked List
-   List<Airport> X;
+  // List<Airport> X;
       // 
 
     
@@ -131,9 +135,23 @@ double distanceEarth(double lat1d, double lon1d, double lat2d, double lon2d) {
 
 
 
-/*
-void simpleSortTotal()
+void SimpleSortTotal(Airport* aus[])
 {
+  Airport temp;
+  int ausLat = aus[10656]->latitude;
+  int ausLong = aus[10656]->longitude;
+  for(int i = 0; i < sizeof(aus); i++ )
+  {
+    for(int j = 0; j < i; j++)
+    {
+      if(distanceEarth(ausLat, ausLong, aus[i]->latitude, aus[i]->longitude) < distanceEarth(ausLat, ausLong, aus[j]->latitude, aus[j]->longitude))
+      {
+        temp = aus[j];
+        aus[j] = aus[i];
+        aus[i] = temp;
+      }
+    }
+  }
+
 
 }
-*/
