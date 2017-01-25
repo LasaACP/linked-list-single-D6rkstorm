@@ -23,7 +23,7 @@ public:
     
 };
 
-void SimpleSortTotal(Airport* s[]);
+void SimpleSortTotal(Airport* s[], int airportCount);
 double distanceEarth(double lat1d, double lon1d, double lat2d, double lon2d);
 
 int main()
@@ -47,8 +47,8 @@ int main()
             infile.getline(cNum, 256, '\n');
             airportArr[c]->latitude = atof(cNum);
 
-            if (!(c % 1000))
-                cout << airportArr[c]->code << " long: " << airportArr[c]->longitude << " lat: " << airportArr[c]->latitude <<  endl;
+            //if (!(c % 1000))
+                //cout << airportArr[c]->code << " long: " << airportArr[c]->longitude << " lat: " << airportArr[c]->latitude <<  endl;
 
             /*
             if (!(c % 1000))
@@ -63,8 +63,8 @@ int main()
             c++;
         }
 
-        SimpleSortTotal(airportArr);
-        cout << airportArr[0]->code << endl;
+       
+
 
         cout << c << endl;
         airportCount = c-1;
@@ -89,11 +89,25 @@ int main()
     }
  
 
-
+    string ausCode = airportArr[10656]->code;
+    double ausLat = airportArr[10656]->latitude;
+    double ausLong = airportArr[10656]->longitude;
+    SimpleSortTotal(airportArr, airportCount);
+    cout << airportArr[13428]->code << endl;
+    cout << distanceEarth(airportArr[13428]->latitude, airportArr[13428]->longitude, ausLat, ausLong) << endl;
+    
    // Initialize Linked List
   // List<Airport> X;
       // 
-
+    ofstream output;
+    output.open("sorted.csv");
+    Airport* a;
+    string write;
+    for(int z = 0; z < airportCount; z++)
+    {
+      a = airportArr[z];
+      output << "" << a->code << "," << distanceEarth(a->latitude, a->longitude, ausLat, ausLong) << "\n";
+    }
     
 }
 
@@ -135,12 +149,12 @@ double distanceEarth(double lat1d, double lon1d, double lat2d, double lon2d) {
 
 
 
-void SimpleSortTotal(Airport* aus[])
+void SimpleSortTotal(Airport* aus[], int airportCount)
 {
-  Airport temp;
+  Airport* temp;
   int ausLat = aus[10656]->latitude;
   int ausLong = aus[10656]->longitude;
-  for(int i = 0; i < sizeof(aus); i++ )
+  for(int i = 0; i < airportCount; i++ )
   {
     for(int j = 0; j < i; j++)
     {
@@ -152,6 +166,4 @@ void SimpleSortTotal(Airport* aus[])
       }
     }
   }
-
-
 }
